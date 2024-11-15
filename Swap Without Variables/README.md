@@ -1,62 +1,49 @@
 # Swap.c
 
 ## Overview
-`Swap.c` is a simple C program that demonstrates how to swap the values of two integers without using a temporary variable. This is achieved through arithmetic operations, specifically addition and subtraction.
+`Swap.c` is a simple C program that swaps the values of two integers without using a temporary variable, using only basic arithmetic operations.
 
 ## Purpose
-The purpose of this program is to illustrate a common algorithmic technique for swapping values in programming, which can be useful in various scenarios where memory usage is a concern or when working in environments with limited resources.
+The program shows how to swap two variables' values in place, a useful technique when memory is limited or efficiency is a priority.
 
 ## How It Works
-The program initializes two integer variables, `a` and `b`, with values 5 and 8, respectively. It then prints the original values of these variables. The swapping is performed using the following steps:
+The program defines two integers, `a = 5` and `b = 8`, and swaps their values using three steps:
 
-1. **Addition**: The sum of `a` and `b` is stored in `a`.
-2. **Subtraction**: The original value of `a` (now the sum) is used to calculate the new value of `b` by subtracting the new `a` from `b`.
-3. **Subtraction Again**: The new value of `b` is subtracted from the new `a` to get the original value of `a`, which is assigned to `a`.
+1. **Addition**: Add `a` and `b` and store the result in `a`.
+2. **Subtraction**: Subtract the new `b` from `a` to restore the original `a` value in `b`.
+3. **Subtraction Again**: Subtract the new `b` from `a` to restore the original `b` value in `a`.
 
-This method effectively swaps the values of `a` and `b` without the need for a temporary variable.
+## Code
+Here’s the code:
 
-## Code Explanation
-Here is the code for the program:
+```c
+#include <stdio.h>
 
-```
-#include<stdio.h>
-int main()
-{
-int a=5, b=8; // Initialize variables
-printf("A = %d\nB = %d\n", a, b); // Print original values
-// Swapping without a temporary variable
-a = a + b; // Step 1: a now holds the sum of a and b
-b = a - b; // Step 2: b now holds the original value of a
-a = a - b; // Step 3: a now holds the original value of b
-printf("Swapped =>\n");
-printf("A = %d\nB = %d\n", a, b); // Print swapped values
+int main() {
+    int a = 5, b = 8;
+    printf("Before Swap: A = %d, B = %d\n", a, b);
+
+    a = a + b; // Step 1
+    b = a - b; // Step 2
+    a = a - b; // Step 3
+
+    printf("After Swap: A = %d, B = %d\n", a, b);
+    return 0;
 }
 ```
 
 ## Compilation and Execution
-To compile and run the program, follow these steps:
+To run the program:
 
-1. Open a terminal or command prompt.
-2. Navigate to the directory where `Swap.c` is located.
-3. Compile the program using the following command:
-   ```bash
-   gcc Swap.c -o Swap
-   ```
-4. Run the compiled program:
-   ```bash
-   ./Swap
-   ```
+1. Compile with `gcc Swap.c -o Swap`
+2. Execute with `./Swap`
 
 ## Output
-When executed, the program will output the original and swapped values of `a` and `b` as follows:
+The program will output:
 
 ```
-A = 5
-B = 8
-Swapped =>
-A = 8
-B = 5
+Before Swap: A = 5, B = 8
+After Swap: A = 8, B = 5
 ```
 
-## Conclusion
-This program serves as a basic example of value swapping in C without using a temporary variable. It highlights the use of arithmetic operations to achieve the desired result efficiently.
+This simple swap method is efficient and requires no extra memory.
